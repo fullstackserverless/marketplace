@@ -50,6 +50,8 @@ const App = () => {
       <ThemeProvider theme={scheme === 'dark' ? DarkTheme : LightTheme}>
         <AppNavigator />
       </ThemeProvider>
+    
+       
     </>
   );
 };

@@ -12,6 +12,7 @@ import {
   Input,
 } from '../../../components';
 import {onScreen, goBack} from '../../../constants';
+import {View, Text, StyleSheet} from 'react-native'
 
 const SignIn = ({navigation}) => {
   const [userInfo, setUserInfo] = useState('');
@@ -49,7 +50,11 @@ const SignIn = ({navigation}) => {
         onPress={goBack(navigation)}
         title="Sign In"
         loading={loading}>
-        <Space height={140} />
+        <Space height={100} />
+        <View style={styles.container}>
+          <Text style={styles.welcome}> START GATE </Text>
+        </View>
+
         <Formik
           initialValues={{email: '', password: ''}}
           onSubmit={(values) => _onPress(values) && setUserInfo(values.email)}
@@ -111,5 +116,21 @@ const SignIn = ({navigation}) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: 'pink'
+  },
+  welcome:  {
+    fontSize: 20,
+    textAlign:  'center',
+    margin: 10,
+    backgroundColor: 'gold'
+  }
+})
 
 export {SignIn};
